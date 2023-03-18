@@ -1,0 +1,178 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.nav {
+  max-width: 90%;
+  margin: 1rem auto;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+.nav .nav__menu {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  flex-flow: column nowrap;
+  cursor: pointer;
+}
+.nav .nav__menu .nav__menu--line {
+  background: #000;
+  width: 4rem;
+  height: 0.5rem;
+}
+.nav .nav__pages {
+  display: none;
+}
+
+.hammenu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 70%;
+  height: 100dvh;
+  position: fixed;
+  background: hsl(36, 100%, 99%);
+  padding: 3rem;
+  display: none;
+  box-shadow: 0px 20px 1000px rgb(0, 0, 0);
+}
+.hammenu .hammenu__close {
+  float: right;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+}
+.hammenu .hammenu__close .hammenu__close--cross {
+  width: 3rem;
+  height: 0.3rem;
+  background: #000;
+}
+.hammenu .hammenu__close .hammenu__close--cross:first-child {
+  transform: rotate(120deg);
+}
+.hammenu .hammenu__close .hammenu__close--cross:last-child {
+  transform: rotate(-120deg);
+}
+.hammenu .hammenu__pages {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  flex-flow: column nowrap;
+  margin-top: 4.5rem;
+}
+.hammenu .hammenu__pages h3 {
+  padding-bottom: 1.5rem;
+  font-size: large;
+  font-weight: 500;
+  cursor: pointer;
+}
+.hammenu .hammenu__pages h3:hover {
+  color: hsl(5, 85%, 63%);
+}
+
+.section {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  flex-flow: column nowrap;
+}
+.section picture {
+  display: flex;
+  justify-content: center;
+}
+.section picture .section__img {
+  width: 90%;
+  height: auto;
+}
+.section .section__text .section__text--header {
+  width: 90%;
+  margin: 1rem auto;
+}
+.section .section__text .section__text--description {
+  width: 90%;
+  margin: 1rem auto;
+}
+.section .section__button {
+  all: unset;
+  align-self: flex-start;
+  margin-left: 4.5%;
+  letter-spacing: 0.3rem;
+  background: hsl(5, 85%, 63%);
+  color: hsl(36, 100%, 99%);
+  padding: 1rem 0.8rem;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+.section .section__button:hover {
+  background: hsl(240, 100%, 5%);
+}
+
+.aside {
+  max-width: 90%;
+  margin: 1rem auto;
+  margin-top: 3rem;
+  background: hsl(240, 100%, 5%);
+  color: hsl(36, 100%, 99%);
+  padding: 1.5rem;
+  scroll-snap-type: start none;
+}
+.aside .aside__header {
+  color: hsl(35, 77%, 62%);
+  padding-bottom: 1.5rem;
+}
+.aside .aside__horizontal {
+  margin-bottom: 1.5rem;
+}
+.aside .aside__content .aside__content--header {
+  padding-bottom: 1.5rem;
+  cursor: pointer;
+}
+.aside .aside__content .aside__content--header:hover {
+  color: hsl(35, 77%, 62%);
+}
+.aside .aside__content .aside__content--description {
+  padding-bottom: 1.5rem;
+  color: hsl(233, 8%, 79%);
+}
+
+.box {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  flex-flow: row nowrap;
+  width: 90%;
+  margin: 1rem auto;
+  margin-top: 3rem;
+  margin-bottom: 4.5rem;
+  justify-content: flex-start;
+}
+.box .box__image {
+  width: 28vw;
+  margin-right: 1.5rem;
+}
+.box .box__text {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+}
+.box .box__text .box__text--number {
+  color: hsl(233, 8%, 79%);
+  font-size: 3rem;
+}
+.box .box__text .box__text--heading {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.box .box__text .box__text--heading:hover {
+  color: hsl(5, 85%, 63%);
+}
+.box .box__text .box__text--description {
+  color: hsl(236, 13%, 42%);
+  font-size: 15px;
+}/*# sourceMappingURL=index.css.map */
