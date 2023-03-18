@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  // outline: solid red;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
@@ -99,26 +100,24 @@ $darkBlue: hsl(240, 100%, 5%);
 }
 
 .section {
+  width: $elementWidth;
   @include displayFlex;
   flex-flow: column nowrap;
+  margin: $marginCenter;
   picture {
     display: flex;
-    justify-content: center;
     .section__img {
-      width: $elementWidth;
+      width: 100%;
       height: auto;
-      // margin: $marginCenter;
     }
   }
 
   .section__text {
     .section__text--header {
-      width: $elementWidth;
       margin: $marginCenter;
     }
 
     .section__text--description {
-      width: $elementWidth;
       margin: $marginCenter;
     }
   }
@@ -126,7 +125,6 @@ $darkBlue: hsl(240, 100%, 5%);
   .section__button {
     all: unset;
     align-self: flex-start;
-    margin-left: 4.5%;
     letter-spacing: 0.3rem;
     background: $red;
     color: $white;
@@ -134,10 +132,10 @@ $darkBlue: hsl(240, 100%, 5%);
     text-align: center;
     font-weight: bold;
     cursor: pointer;
-  }
 
-  .section__button:hover {
-    background: $darkBlue;
+    &:hover {
+      background: $darkBlue;
+    }
   }
 }
 
@@ -185,7 +183,8 @@ $darkBlue: hsl(240, 100%, 5%);
   justify-content: flex-start;
 
   .box__image {
-    width: 28vw;
+    width: clamp(10rem, 28vw, 13rem);
+    height: clamp(10rem, 28vh, 18rem);
     margin-right: $paddingBottom;
   }
 
@@ -216,4 +215,62 @@ $darkBlue: hsl(240, 100%, 5%);
 }
 
 @media (width >= 700px) {
+  .nav {
+    .nav__menu {
+      display: none;
+    }
+    .nav__pages {
+      width: 50%;
+      @include displayFlex;
+      align-items: center;
+      h3 {
+        font-weight: normal;
+        &:hover {
+          color: $red;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .main {
+    max-width: $elementWidth;
+    margin: $marginCenter;
+    @include displayFlex;
+    gap: $paddingBottom;
+
+    .section {
+      margin-top: 0;
+      &__text {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        column-gap: $paddingBottom;
+        &--header {
+          grid-column: 1/3;
+          font-size: clamp(3rem, 10vw, 4rem);
+        }
+        &--desBtn {
+          grid-column: 3/5;
+          @include displayFlex;
+          flex-flow: column nowrap;
+          .section__text--description {
+            word-spacing: 0.2rem;
+            font-size: $paddingBottom;
+          }
+        }
+      }
+    }
+
+    .aside {
+      margin-top: 0;
+    }
+    margin-top: $paddingBottom * 1.5;
+  }
+
+  .boxParent {
+    width: $elementWidth;
+    margin: $marginCenter;
+    @include displayFlex;
+    overflow: auto;
+  }
 }
