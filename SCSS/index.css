@@ -1,241 +1,311 @@
-* {
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+html {
+  font-size: 100%;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+h1,
+h2 {
+  font-size: clamp(1.5rem, -0.5rem + 5.3333vw, 2.5rem);
+}
+
+/* Set core body defaults */
+body {
+  text-rendering: optimizeSpeed;
+  line-height: 1.7;
+  font-family: Inter;
+  background-color: hsl(36, 100%, 99%);
+  margin: calc(15px + 1.5625vw) calc(2rem + 1.5625vw);
+}
+
+.container {
+  display: grid;
+  row-gap: 3rem;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-areas: "n n n n  n n n n  n n n n" "m m m m  m m m m  m m m m" "a a a a  a a a a a a a a" "f f f f  f f f f  f f f f";
+}
+@media (min-width: 62rem) {
+  .container {
+    -moz-column-gap: 0.8rem;
+         column-gap: 0.8rem;
+    grid-template-areas: "n n n n  n n n n  n n n n" "m m m m  m m m m  a a a a" "m m m m  m m m m  a a a a" "f f f f  f f f f  f f f f";
+  }
 }
 
 .nav {
-  max-width: 90%;
-  margin: 1rem auto;
+  width: 100%;
+  grid-area: n;
   display: flex;
   flex-flow: row nowrap;
+  align-items: center;
   justify-content: space-between;
 }
-.nav .nav__menu {
+.nav__pages {
+  width: 50%;
   display: flex;
   flex-flow: row nowrap;
+  align-items: center;
   justify-content: space-between;
-  flex-flow: column nowrap;
+  font-size: 1rem;
+  color: hsl(236, 13%, 42%);
+}
+.nav__pages > *:hover {
   cursor: pointer;
-}
-.nav .nav__menu .nav__menu--line {
-  background: #000;
-  width: 4rem;
-  height: 0.5rem;
-}
-.nav .nav__pages {
-  display: none;
-}
-
-.hammenu {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 70%;
-  height: 100dvh;
-  position: fixed;
-  background: hsl(36, 100%, 99%);
-  padding: 3rem;
-  display: none;
-  box-shadow: 0px 20px 1000px rgb(0, 0, 0);
-}
-.hammenu .hammenu__close {
-  float: right;
-  margin-bottom: 1.5rem;
-  cursor: pointer;
-}
-.hammenu .hammenu__close .hammenu__close--cross {
-  width: 3rem;
-  height: 0.3rem;
-  background: #000;
-}
-.hammenu .hammenu__close .hammenu__close--cross:first-child {
-  transform: rotate(120deg);
-}
-.hammenu .hammenu__close .hammenu__close--cross:last-child {
-  transform: rotate(-120deg);
-}
-.hammenu .hammenu__pages {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  flex-flow: column nowrap;
-  margin-top: 4.5rem;
-}
-.hammenu .hammenu__pages h3 {
-  padding-bottom: 1.5rem;
-  font-size: large;
-  font-weight: 500;
-  cursor: pointer;
-}
-.hammenu .hammenu__pages h3:hover {
   color: hsl(5, 85%, 63%);
 }
+.nav__menu {
+  padding: 0.8rem;
+  display: none;
+}
+.nav__menu:hover {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+}
+@media (max-width: 37.5rem) {
+  .nav__pages {
+    display: none;
+  }
+  .nav__menu {
+    cursor: pointer;
+    display: block;
+  }
+}
 
-.section {
-  width: 90%;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  flex-flow: column nowrap;
-  margin: 1rem auto;
+.main {
+  grid-area: m;
 }
-.section picture {
-  display: flex;
+.main > * + * {
+  margin-top: 1rem;
 }
-.section picture .section__img {
-  width: 100%;
-  height: auto;
+.main__text > * + * {
+  margin-top: 1rem;
 }
-.section .section__text .section__text--header {
-  margin: 1rem auto;
+.main__content > * + * {
+  margin-top: 1rem;
 }
-.section .section__text .section__text--description {
-  margin: 1rem auto;
+.main__content--description {
+  color: hsl(236, 13%, 42%);
 }
-.section .section__button {
-  all: unset;
-  align-self: flex-start;
-  letter-spacing: 0.3rem;
+.main__button {
   background: hsl(5, 85%, 63%);
+  letter-spacing: 0.2rem;
   color: hsl(36, 100%, 99%);
-  padding: 1rem 0.8rem;
-  text-align: center;
-  font-weight: bold;
-  cursor: pointer;
+  padding: 0.8rem 1.8rem;
+  display: inline-block;
 }
-.section .section__button:hover {
+.main__button:hover {
+  cursor: pointer;
   background: hsl(240, 100%, 5%);
+}
+@media (min-width: 62rem) {
+  .main {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: start;
+    justify-content: space-between;
+  }
+  .main__text {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: normal;
+    justify-content: space-between;
+  }
+  .main__text--header {
+    font-size: 3rem;
+  }
+  .main__text .main__content {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: start;
+    justify-content: space-around;
+    margin-top: 0;
+    margin-left: 3rem;
+  }
 }
 
 .aside {
-  max-width: 90%;
-  margin: 1rem auto;
-  margin-top: 3rem;
-  background: hsl(240, 100%, 5%);
   color: hsl(36, 100%, 99%);
-  padding: 1.5rem;
-  scroll-snap-type: start none;
+  background: hsl(240, 100%, 5%);
+  padding: 1rem;
+  grid-area: a;
 }
-.aside .aside__header {
-  color: hsl(35, 77%, 62%);
-  padding-bottom: 1.5rem;
+.aside > * + * {
+  margin-top: 1rem;
 }
-.aside .aside__horizontal {
-  margin-bottom: 1.5rem;
+.aside__content > * + * {
+  margin-top: 1rem;
 }
-.aside .aside__content .aside__content--header {
-  padding-bottom: 1.5rem;
+.aside__content--header:hover {
   cursor: pointer;
-}
-.aside .aside__content .aside__content--header:hover {
   color: hsl(35, 77%, 62%);
 }
-.aside .aside__content .aside__content--description {
-  padding-bottom: 1.5rem;
+.aside__content--description {
   color: hsl(233, 8%, 79%);
+}
+.aside__header {
+  color: hsl(35, 77%, 62%);
+}
+.aside__horizontal {
+  background: hsl(36, 100%, 99%);
+  height: 0.2rem;
+  width: 100%;
 }
 
-.box {
+.boxParent {
+  grid-area: f;
+}
+.boxParent > * + * {
+  margin-top: 1.5rem;
+}
+.boxParent .box {
   display: flex;
   flex-flow: row nowrap;
+  align-items: normal;
   justify-content: space-between;
-  flex-flow: row nowrap;
-  width: 90%;
-  margin: 1rem auto;
-  margin-top: 3rem;
-  margin-bottom: 4.5rem;
-  justify-content: flex-start;
 }
-.box .box__image {
-  width: clamp(10rem, 28vw, 13rem);
-  height: clamp(10rem, 28vh, 18rem);
-  margin-right: 1.5rem;
+.boxParent .box__image {
+  height: auto;
+  width: 35%;
 }
-.box .box__text {
+.boxParent .box__text {
   display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
   flex-flow: column nowrap;
-  justify-content: space-around;
+  align-items: start;
+  justify-content: space-between;
+  gap: 0.5rem;
+  width: 60%;
 }
-.box .box__text .box__text--number {
+.boxParent .box__text--number {
   color: hsl(233, 8%, 79%);
-  font-size: 3rem;
 }
-.box .box__text .box__text--heading {
-  font-size: 1.5rem;
+.boxParent .box__text--heading:hover {
   cursor: pointer;
-}
-.box .box__text .box__text--heading:hover {
   color: hsl(5, 85%, 63%);
 }
-.box .box__text .box__text--description {
+.boxParent .box__text--description {
   color: hsl(236, 13%, 42%);
-  font-size: 15px;
+}
+@media (min-width: 37.5rem) {
+  .boxParent {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: start;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .boxParent .box {
+    height: 100%;
+    margin: 0;
+  }
 }
 
-@media (width >= 700px) {
-  .nav .nav__menu {
-    display: none;
-  }
-  .nav .nav__pages {
-    width: 50%;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .nav .nav__pages h3 {
-    font-weight: normal;
-  }
-  .nav .nav__pages h3:hover {
-    color: hsl(5, 85%, 63%);
-    cursor: pointer;
-  }
-  .main {
-    max-width: 90%;
-    margin: 1rem auto;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    gap: 1.5rem;
-    margin-top: 2.25rem;
-  }
-  .main .section {
-    margin-top: 0;
-  }
-  .main .section__text {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    -moz-column-gap: 1.5rem;
-         column-gap: 1.5rem;
-  }
-  .main .section__text--header {
-    grid-column: 1/3;
-    font-size: clamp(3rem, 10vw, 4rem);
-  }
-  .main .section__text--desBtn {
-    grid-column: 3/5;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    flex-flow: column nowrap;
-  }
-  .main .section__text--desBtn .section__text--description {
-    word-spacing: 0.2rem;
-    font-size: 1.5rem;
-  }
-  .main .aside {
-    margin-top: 0;
-  }
-  .boxParent {
-    width: 90%;
-    margin: 1rem auto;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    overflow: auto;
-  }
+.blur {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100dvh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: fixed;
+}
+
+.hammenu {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: hsl(36, 100%, 99%);
+  height: 100%;
+  width: 70%;
+  position: fixed;
+}
+.hammenu .hammenu__close {
+  float: right;
+  margin: 1rem;
+  cursor: pointer;
+  padding: 0.8rem;
+}
+.hammenu .hammenu__close:hover {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+}
+.hammenu .hammenu__pages {
+  height: 40%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: normal;
+  justify-content: space-between;
+  margin-top: 6rem;
+  margin-left: 1.3rem;
+}
+.hammenu .hammenu__pages > *:hover {
+  cursor: pointer;
+  color: hsl(5, 85%, 63%);
 }/*# sourceMappingURL=index.css.map */

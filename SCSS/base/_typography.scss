@@ -1,0 +1,16 @@
+@use "../abstracts/variables" as *;
+
+h1,
+h2 {
+  font-size: clamp(1.5rem, -0.5rem + 5.3333vw, 2.5rem);
+}
+
+/* Set core body defaults */
+body {
+  text-rendering: optimizeSpeed;
+  line-height: 1.7;
+  font-family: Inter;
+  background-color: $Off-white;
+  // font-size: clamp(1rem, -1rem + 5.3333vw, 2rem);
+  margin: calc(15px + 1.5625vw) calc(2rem + 1.5625vw);
+}

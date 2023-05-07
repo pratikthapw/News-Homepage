@@ -4,57 +4,64 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Inter:400;700;800"
+    />
+    <link
+      rel="shortcut icon"
+      href="images/favicon-32x32.png"
+      type="image/x-icon"
+    />
     <link rel="stylesheet" href="SCSS/index.css" />
     <title>News Homepage</title>
   </head>
   <body>
-    <nav class="nav">
-      <div class="nav__logo">
-        <img src="images/logo.svg" alt="Website Logo" />
-      </div>
+    <div class="container">
+      <!-- Nav Section -->
+      <nav class="nav">
+        <div class="nav__logo">
+          <img src="images/logo.svg" alt="Website Logo" />
+        </div>
 
-      <div class="nav__menu">
-        <div class="nav__menu--line"></div>
-        <div class="nav__menu--line"></div>
-        <div class="nav__menu--line"></div>
-      </div>
+        <div class="nav__pages">
+          <p>Home</p>
+          <p>New</p>
+          <p>Popular</p>
+          <p>Trending</p>
+          <p>Categories</p>
+        </div>
 
-      <div class="nav__pages">
-        <h3>Home</h3>
-        <h3>New</h3>
-        <h3>Popular</h3>
-        <h3>Trending</h3>
-        <h3>Categories</h3>
-      </div>
-    </nav>
+        <img src="images/icon-menu.svg" alt="hammenu" class="nav__menu" />
+      </nav>
 
-    <main class="main">
-      <section class="section">
+      <!-- Main Section -->
+      <main class="main">
         <picture>
           <source
             srcset="images/image-web-3-mobile.jpg"
-            media="(max-width:700px)"
+            media="(max-width:37.5rem)"
           />
           <img
-            class="section__img"
+            class="main__img"
             src="images/image-web-3-desktop.jpg"
             alt="Hero Image"
           />
         </picture>
-        <div class="section__text">
-          <h1 class="section__text--header">The Bright Future of Web 3.0?</h1>
-
-          <div class="section__text--desBtn">
-            <p class="section__text--description">
+        <div class="main__text">
+          <h1 class="main__text--header">The Bright Future of Web 3.0?</h1>
+          <div class="main__content">
+            <p class="main__content--description">
               We dive into the next evolution of the web that claims to put the
               power of the platforms back into the hands of the people. But is
               it really fulfilling its promise?
             </p>
-            <button class="section__button">READ MORE</button>
+            <div class="main__button">READ MORE</div>
           </div>
         </div>
-      </section>
+      </main>
 
+      <!-- Aside Section -->
       <aside class="aside">
         <h2 class="aside__header">New</h2>
 
@@ -64,7 +71,7 @@
             Will hydrogen-fueled cars ever catch up to EVs?
           </p>
         </div>
-        <hr class="aside__horizontal" />
+        <div class="aside__horizontal"></div>
 
         <div class="aside__content">
           <h3 class="aside__content--header">The Downsides of AI Artistry</h3>
@@ -73,7 +80,7 @@
             generation?
           </p>
         </div>
-        <hr class="aside__horizontal" />
+        <div class="aside__horizontal"></div>
 
         <div class="aside__content">
           <h3 class="aside__content--header">Is VC Funding Drying Up?</h3>
@@ -83,67 +90,72 @@
           </p>
         </div>
       </aside>
-    </main>
 
-    <div class="boxParent">
-      <div class="box">
-        <img
-          src="images/image-retro-pcs.jpg"
-          alt="Neon Retro PC"
-          class="box__image"
-        />
+      <!-- Footer Section -->
+      <div class="boxParent">
+        <div class="box">
+          <img
+            src="images/image-retro-pcs.jpg"
+            alt="Neon Retro PC"
+            class="box__image"
+          />
 
-        <div class="box__text">
-          <h2 class="box__text--number">01</h2>
-          <h3 class="box__text--heading">Reviving Retro PCs</h3>
-          <p class="box__text--description">
-            What happens when old PCs are given modern upgrades?
-          </p>
+          <div class="box__text">
+            <h2 class="box__text--number">01</h2>
+            <h3 class="box__text--heading">Reviving Retro PCs</h3>
+            <p class="box__text--description">
+              What happens when old PCs are given modern upgrades?
+            </p>
+          </div>
         </div>
-      </div>
 
-      <div class="box">
-        <img
-          src="images/image-top-laptops.jpg"
-          alt="Top laptops"
-          class="box__image"
-        />
-        <div class="box__text">
-          <h2 class="box__text--number">02</h2>
-          <h3 class="box__text--heading">Top 10 Laptops of 2022</h3>
-          <p class="box__text--description">
-            Our best picks for various needs and budgets.
-          </p>
+        <div class="box">
+          <img
+            src="images/image-top-laptops.jpg"
+            alt="Top laptops"
+            class="box__image"
+          />
+          <div class="box__text">
+            <h2 class="box__text--number">02</h2>
+            <h3 class="box__text--heading">Top 10 Laptops of 2022</h3>
+            <p class="box__text--description">
+              Our best picks for various needs and budgets.
+            </p>
+          </div>
         </div>
-      </div>
 
-      <div class="box">
-        <img
-          src="images/image-gaming-growth.jpg"
-          alt="Gaming Growth"
-          class="box__image"
-        />
-        <div class="box__text">
-          <h2 class="box__text--number">03</h2>
-          <h3 class="box__text--heading">The Growth of Gaming</h3>
-          <p class="box__text--description">
-            How the pandemic has sparked fresh opportunities.
-          </p>
+        <div class="box">
+          <img
+            src="images/image-gaming-growth.jpg"
+            alt="Gaming Growth"
+            class="box__image"
+          />
+          <div class="box__text">
+            <h2 class="box__text--number">03</h2>
+            <h3 class="box__text--heading">The Growth of Gaming</h3>
+            <p class="box__text--description">
+              How the pandemic has sparked fresh opportunities.
+            </p>
+          </div>
         </div>
       </div>
     </div>
+    <!-- Blur when hammenu opens -->
+    <div class="blur"></div>
 
+    <!-- HamMenu Open For Mobile Devices -->
     <div class="hammenu">
-      <div class="hammenu__close">
-        <div class="hammenu__close--cross"></div>
-        <div class="hammenu__close--cross"></div>
-      </div>
+      <img
+        src="images/icon-menu-close.svg"
+        alt="Hammenu close"
+        class="hammenu__close"
+      />
       <div class="hammenu__pages">
-        <h3 class="hammenu__pages--option">Home</h3>
-        <h3>New</h3>
-        <h3>Popular</h3>
-        <h3>Trending</h3>
-        <h3>Categorries</h3>
+        <p class="hammenu__pages--option">Home</p>
+        <p>New</p>
+        <p>Popular</p>
+        <p>Trending</p>
+        <p>Categories</p>
       </div>
     </div>
 
